@@ -10,6 +10,7 @@ import { sendText } from "../lib/wa.js";
 const RATING_MAP = { RATE_GOOD: 5, RATE_OK: 3, RATE_BAD: 1 };
 
 export default async function handler(req, res) {
+  console.log("=== 收到 Meta Webhook 请求 ===", req.method, req.query);
   // ---- Meta 首次绑定 webhook 时的"对暗号"握手 ----
   if (req.method === "GET") {
     if (req.query["hub.verify_token"] === process.env.WA_VERIFY_TOKEN)
